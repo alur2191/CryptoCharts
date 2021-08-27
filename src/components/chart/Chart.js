@@ -1,4 +1,5 @@
 import {useEffect,useContext} from 'react'
+import { useMediaQuery } from 'react-responsive'
 import {
     ResponsiveContainer,
     AreaChart,
@@ -6,16 +7,24 @@ import {
     YAxis,
     Area,
     CartesianGrid,
-    Tooltip,
-    CratesianGrid
 } from "recharts";
 import  ChartContext  from '../../context/chart/chartContext';
 
 
 
 export default function Chart() {
-    const {requestCoin, coin: {marketData,startPrice,timeInterval,coinData}} = useContext(ChartContext)
+    const isDesktop = useMediaQuery({
+        query: '(min-width: 1224px)'
+    })
+    const isTablet = useMediaQuery({
+        query: '(min-width: 768px)'
+    })
+    const isMobile = useMediaQuery({
+        query: '(max-width: 768px)'
+    })
 
+    const {requestCoin, coin: {marketData,startPrice,timeInterval}} = useContext(ChartContext)
+    
     useEffect(() => {  
         requestCoin('bitcoin');
         
@@ -29,11 +38,32 @@ export default function Chart() {
         }
     }
     
+    const processChart = (device) => {
+        var mobileChart = []
+
+        for (var i = 0; i < marketData.length; i = device === 'mobile'? i+3:i+2) {
+            mobileChart.push(marketData[i]);
+        };
+        return mobileChart
+    }
+
+
+    const setChart = () => {
+        switch(true){
+            case isMobile:
+                return processChart('mobile')
+            case isTablet:
+                return processChart('tablet')
+            default:
+                return marketData
+        } 
+    }
+    
     return (
         <div className="container">
             
             <ResponsiveContainer width="100%" height={499} margin={{ top: 0, left: 0, right: 0, bottom: 0 }} >
-                <AreaChart data={marketData}>
+                <AreaChart data={marketData && setChart()}>
                     <Area 
                         dataKey="price" 
                         stroke="#aaaaaa" 

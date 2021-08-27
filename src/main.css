@@ -148,8 +148,41 @@ table thead {
     color:var(--secondary-color);
     
 }
-
+#dashboard {
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    margin-bottom:30;
+    row-gap: 10px;
+    margin-bottom:20px;
+}
+#dashboard > * {
+    display: flex;
+    justify-content: center;
+}
 .secondary {
     color: var(--secondary-inverse-color);
 }
 
+@media(min-width: 769px) and (max-width:1200px) {
+    #dashboard {
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr;
+        margin-bottom:30;
+    }
+    #dashboard > * {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media(max-width:768px) {
+    #dashboard {
+        display: grid;
+        grid-template-columns:1fr 1fr;
+        margin-bottom:30;
+    }
+    #dashboard > * {
+        display: flex;
+        justify-content: center;
+    }
+}

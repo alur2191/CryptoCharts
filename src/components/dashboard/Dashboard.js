@@ -36,95 +36,50 @@ export default function Dashboard() {
     return(
         coinData !== undefined ? 
             <div className="container">
-                <div style={{display: 'flex', justifyContent: 'space-around',marginBottom:30}}>
-                    <table>
-                        <tr>
-                            <thead>
-                                <strong>Price:</strong>
-                            </thead>
-                            <td>${formatNumber(marketData.current_price.usd)}
-                                <span 
-                                    className="small-font" 
-                                    style={
-                                        marketData.price_change_percentage_24h >= 0 ? 
-                                        {color:'#3a9368',marginLeft: 3} : 
-                                        {color:'#933a4b',marginLeft: 3}}
-                                    >
-                                        ({marketData.price_change_percentage_24h.toFixed(2)}%)
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                        <thead><strong>ATH:</strong></thead>
-                            <td>${marketData.ath.usd.toLocaleString('en')}
-                                <span className="small-font" style={
-                                    marketData.ath_change_percentage.usd >= 0 ?
-                                    {color:'#3a9368',marginLeft: 3} :
-                                    {color:'#933a4b',marginLeft: 3}}
-                                >
-                                    ({marketData.ath_change_percentage.usd.toFixed(2)}%)
-                                </span>
-                            </td>
-                            
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <thead><strong>MCap:</strong></thead>
-                            <td>${numberConverter(marketData.market_cap.usd)}</td>
-                        </tr>
-                        <tr>
-                            <thead><strong>Vol:</strong></thead>
-                            <td>
-                                ${numberConverter(marketData.total_volume.usd)}
-                            </td>
-                                
-                            
-                        </tr>
-                        
-                    </table>
-                    <table>
-                        
-                        <tr>
-                            <thead><strong>Supply:</strong></thead>
-                            <td>
-                                <span>
-                                    {marketData.total_supply !== null ? attachSymbol(coinData.id)+numberConverter(marketData.total_supply) : `∞`}
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <thead><strong>Circulating:</strong></thead>
-                            <td>
-                                <span>
-                                    {attachSymbol(coinData.id)}{numberConverter(marketData.circulating_supply)}
-                                </span>
-                            </td>
-                            
-                        </tr>
-                        </table>
-                        <table>
-                        <tr>
-                            <thead><strong>Explorer:</strong></thead>
-                            <td>
-                                <a href={coinData.links.blockchain_site[0]}>Link</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <thead><strong>Supply:</strong></thead>
-                            <td>
-                                <span>
-                                    ${numberConverter(marketData.circulating_supply)} / {marketData.total_supply !== null ? `$`+ numberConverter(marketData.total_supply) : `∞`}
-                                </span>
-                                
-                            </td>
-                                
-                            
-                        </tr>
-                        
-                    </table>
-                    
-                    
+                <div id="dashboard">
+                    <div>
+                        <strong>Price:</strong>
+                        ${formatNumber(marketData.current_price.usd)}
+                        <span 
+                            className="small-font" 
+                            style={
+                                marketData.price_change_percentage_24h >= 0 ? 
+                                {color:'#3a9368',marginLeft: 3} : 
+                                {color:'#933a4b',marginLeft: 3}}
+                            >
+                                ({marketData.price_change_percentage_24h.toFixed(2)}%)
+                        </span>
+                    </div>
+                    <div>
+                        <strong>MCap:</strong>
+                        ${numberConverter(marketData.market_cap.usd)}
+                    </div>
+                    <div>
+                        <strong>Vol:</strong>
+                        ${numberConverter(marketData.total_volume.usd)}
+                    </div>
+                    <div>
+                        <strong>Supply:</strong>
+                        <span>
+                            {marketData.total_supply !== null ? attachSymbol(coinData.id)+numberConverter(marketData.total_supply) : `∞`}
+                        </span>
+                    </div>
+                    <div>
+                        <strong>Circulating:</strong>
+                        <span>
+                            {attachSymbol(coinData.id)}{numberConverter(marketData.circulating_supply)}
+                        </span>
+                    </div>
+                    <div>
+                        <strong>Explorer:</strong>
+                        <a href={coinData.links.blockchain_site[0]}>Link</a>
+                    </div>
+                    <div>
+                        <strong>Supply:</strong>
+                        <span>
+                        ${numberConverter(marketData.circulating_supply)} / {marketData.total_supply !== null ? `$`+ numberConverter(marketData.total_supply) : `∞`}
+                        </span>
+                    </div>
                 </div>
                 <div style={{
                     display:'flex',
