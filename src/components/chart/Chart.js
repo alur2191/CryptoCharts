@@ -62,14 +62,16 @@ export default function Chart() {
     return (
         <div className="container">
             
-            <ResponsiveContainer width="100%" height={499} margin={{ top: 0, left: 0, right: 0, bottom: 0 }} >
-                <AreaChart data={marketData && setChart()}>
+            <ResponsiveContainer width="100%"  height={isMobile ? 375 : 499} >
+                <AreaChart data={marketData && setChart()} margin={{ right: 20 }} >
                     <Area 
                         dataKey="price" 
                         stroke="#aaaaaa" 
                         fill="#c3c4c5" 
                         // 3C5295
-                        fillOpacity="0.3" 
+                        fillOpacity="0.3"
+                        
+                        
                     />
                     <XAxis 
                         dataKey="timestamp" 
