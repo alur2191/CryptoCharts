@@ -27,7 +27,7 @@
 body{
     background-color: #e2e2e2;
     color:var(--dark-color);
-    
+    padding-top: 50px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -154,7 +154,6 @@ table thead {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
-    margin-bottom:30;
     row-gap: 10px;
     margin-bottom:20px;
 }
@@ -162,6 +161,11 @@ table thead {
     flex: 0 0 calc(25% - 20px);
     text-align: center;
 }
+
+#dashboard > div > strong {
+    margin-right: 4px;
+}
+
 .secondary {
     color: var(--secondary-inverse-color);
 }
@@ -180,13 +184,22 @@ table thead {
 }
 
 @media(max-width:768px) {
+    body{
+        padding-top: 30px;
+    }
+    #search {
+        margin-bottom: 20px;
+    }
     #dashboard {
         display: flex;
         flex-wrap: wrap;
         margin-bottom:30;
+        row-gap: 5px;
+        font-size: 14px;
     }
     #dashboard > * {
         flex: 0 0 calc(50% - 20px);
+        
         text-align: center;
     }
 }

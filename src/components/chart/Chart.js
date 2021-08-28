@@ -62,7 +62,7 @@ export default function Chart() {
     return (
         <div className="container">
             
-            <ResponsiveContainer width="100%"  height={isMobile ? 375 : 499} >
+            <ResponsiveContainer width="100%"  height={isMobile ? 400 : 499} >
                 <AreaChart data={marketData && setChart()} margin={{ right: 20 }} >
                     <Area 
                         dataKey="price" 
@@ -81,7 +81,7 @@ export default function Chart() {
                         angle={-45} 
                         style={{fontSize:9, fill:'#747474'}}
                         // 5777B9 
-                        dy={10} 
+                        dy={10}
                         dx={-7}
                     />
                     <YAxis 

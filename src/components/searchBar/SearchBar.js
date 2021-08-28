@@ -49,7 +49,7 @@ export default function SearchBar() {
     
     return (
         <div>
-            <div id="search" className="container" style={{marginTop:50}}>
+            <div id="search" className="container">
                 <div id="search-bar">
                     <span>{coinData && coinData.market_data.market_cap_rank}</span>
                     <input 
