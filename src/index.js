@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import ThemeState from './context/theme/ThemeState'
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeState>
+      <App />
+    </ThemeState>
   </React.StrictMode>,
   document.getElementById('root')
 );

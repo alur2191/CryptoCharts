@@ -1,6 +1,6 @@
 import React, { useReducer} from 'react';
 import axios from 'axios';
-import ChartReducer from './chartReducer'
+import chartReducer from './chartReducer'
 import ChartContext from './chartContext'
 import { SET_LOADING, GET_COIN } from '../types';
 //const CoinGecko = require('coingecko-api');
@@ -15,7 +15,7 @@ const ChartState = ({children}) => {
         fetching: false
     }
 
-    const [state, dispatch] = useReducer(ChartReducer, initialState);
+    const [state, dispatch] = useReducer(chartReducer, initialState);
     
     const setLoading = () =>  dispatch({ type: SET_LOADING  })
     

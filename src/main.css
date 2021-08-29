@@ -1,20 +1,24 @@
 /* :root {
     --secondary-bg-color: #181d3a;
     --primary-color: #dfdfdf;
-    --secondary-inverse-color: #bcd8f3;
-    --secondary-color: #2E3E72;
-    --dark-color: #5777B9;
-    --primary-color-dark: #0d1020;
+    --primary-color: #5777B9;
+    --border-color: #0d1020;
     --small-font-size: 0.7rem;
 } */
 
 :root {
+    --background-color: #e2e2e2;
     --secondary-bg-color: #dbdcdf;
-    --primary-color: #707070;
-    --secondary-inverse-color: #a5a5a5;
-    --secondary-color: #aaaaaa;
-    --dark-color: #747474;
-    --primary-color-dark: #c3c4c5;
+    --primary-color: #747474;
+    --border-color: #c3c4c5;
+    --small-font-size: 0.7rem;
+}
+
+[data-theme="dark"] {
+    --background-color: #15142B;
+    --secondary-bg-color: #21213A;
+    --primary-color: #adaabe;
+    --border-color: #4A4876;
     --small-font-size: 0.7rem;
 }
 
@@ -24,23 +28,24 @@
 
 /* #0D1021 */
 
-body{
-    background-color: #e2e2e2;
-    color:var(--dark-color);
+.app{
+    background-color: var(--background-color);
+    color:var(--primary-color);
     padding-top: 50px;
+    height: 100vh;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: var(--dark-color);
+    color: var(--primary-color);
 }
 ::-moz-placeholder { /* Firefox 19+ */
-    color: var(--dark-color);
+    color: var(--primary-color);
 }
 :-ms-input-placeholder { /* IE 10+ */
-    color: var(--dark-color);
+    color: var(--primary-color);
 }
 :-moz-placeholder { /* Firefox 18- */
-    color: var(--dark-color);
+    color: var(--primary-color);
 }
 
 input[type=text], textarea {
@@ -52,7 +57,7 @@ input[type=text], textarea {
 }
 
 a:link {
-    color: var(--dark-color);
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -67,11 +72,7 @@ input[type=text]:focus, textarea:focus {
 
 
 
-table thead {
-    font-size: var(--small-font-size);
-    color:var(--secondary-color);
-    
-}
+
 .small-font {
     font-size: var(--small-font-size);
     font-weight: bold;
@@ -98,9 +99,9 @@ table thead {
     align-items: center;
     justify-content: center;
     padding-bottom: 3px;
-    border-left: 1px solid var(--primary-color-dark);
-    border-top: 1px solid var(--primary-color-dark);
-    border-bottom: 1px solid var(--primary-color-dark);
+    border-left: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 .search-bar {
     width: 100%;
@@ -111,15 +112,15 @@ table thead {
     border:none;
     border-radius: 0px;
     padding-left: 10px;
-    border: 1px solid var(--primary-color-dark);
+    border: 1px solid var(--border-color);
 }
 
 
 .suggestion{
     cursor: pointer;
-    border-right: 1px solid var(--primary-color-dark);
-    border-left: 1px solid var(--primary-color-dark);
-    border-bottom: 1px solid var(--primary-color-dark);
+    border-right: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
     color: var(--primary-color);
     background-color: var(--secondary-bg-color);
     padding: 10px;
@@ -134,7 +135,7 @@ table thead {
 
 .suggestion:last-child{
     cursor: pointer;
-    border-bottom: 1px solid var(--primary-color-dark);
+    border-bottom: 1px solid var(--border-color);
 }
 .suggestion:hover{
     background-color: #1d2346;
@@ -144,10 +145,6 @@ table thead {
     margin: 0 auto;
 }
 
-.title {
-    color:var(--secondary-color);
-    
-}
 
 
 #dashboard {
@@ -166,9 +163,6 @@ table thead {
     margin-right: 4px;
 }
 
-.secondary {
-    color: var(--secondary-inverse-color);
-}
 
 @media(min-width: 769px) and (max-width:1200px) {
     #dashboard {
