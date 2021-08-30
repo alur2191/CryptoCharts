@@ -60,6 +60,7 @@ export default function SearchBar() {
                     value={text}  
                     placeholder={ coinData && coinData.name+' ('+coinData.symbol.toUpperCase()+')' }
                     />
+                    <ThemeButton />
                 </div>
                 <div id='suggestions'  onBlur={console.log(this)}>
                 {suggestions && suggestions
@@ -100,9 +101,7 @@ export default function SearchBar() {
                     )
                 }
                 </div>
-                <div>
-                    <ThemeButton />
-                </div>
+                
             </div>
         </div>
     )

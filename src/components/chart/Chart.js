@@ -9,6 +9,7 @@ import {
     CartesianGrid,
 } from "recharts";
 import  ChartContext  from '../../context/chart/chartContext';
+import  ThemeContext  from '../../context/theme/themeContext';
 
 
 
@@ -16,18 +17,15 @@ export default function Chart() {
     const isDesktop = useMediaQuery({
         query: '(min-width: 1224px)'
     })
-    const isTablet = useMediaQuery({
-        query: '(min-width: 768px)'
-    })
     const isMobile = useMediaQuery({
         query: '(max-width: 768px)'
     })
 
     const {requestCoin, coin: {marketData,startPrice,timeInterval}} = useContext(ChartContext)
-    
+    const {darkTheme} = useContext(ThemeContext)
+
     useEffect(() => {  
         requestCoin('bitcoin');
-        
     },[])
 
     const formatNumber = (number) => {
@@ -41,7 +39,7 @@ export default function Chart() {
     const processChart = (device) => {
         var mobileChart = []
 
-        for (var i = 0; i < marketData.length; i = device === 'mobile'? i+3:i+2) {
+        for (var i = 0; i < marketData.length; i = device === 'mobile'? i+3:i) {
             mobileChart.push(marketData[i]);
         };
         return mobileChart
@@ -52,8 +50,8 @@ export default function Chart() {
         switch(true){
             case isMobile:
                 return processChart('mobile')
-            case isTablet:
-                return processChart('tablet')
+            case isDesktop:
+                return marketData
             default:
                 return marketData
         } 
@@ -66,8 +64,8 @@ export default function Chart() {
                 <AreaChart data={marketData && setChart()} margin={{ right: 20 }} >
                     <Area 
                         dataKey="price" 
-                        stroke="#aaaaaa" 
-                        fill="#c3c4c5" 
+                        stroke={darkTheme? "#9ba2ec" : "#aaaaaa"}
+                        fill={darkTheme? "#7b84de" : "#c3c4c5"}
                         // 3C5295
                         fillOpacity="0.3"
                         
@@ -76,10 +74,10 @@ export default function Chart() {
                     <XAxis 
                         dataKey="timestamp" 
                         interval={timeInterval} 
-                        stroke="#aaaaaa"
+                        stroke={darkTheme? "#9ba2ec" : "#aaaaaa"}
                         // 263556 
                         angle={-45} 
-                        style={{fontSize:9, fill:'#747474'}}
+                        style={{fontSize:9, fill:darkTheme? "#adaabe" : "#aaaaaa"}}
                         // 5777B9 
                         dy={10}
                         dx={-7}
@@ -90,7 +88,7 @@ export default function Chart() {
                         tickCount={8} 
                         stroke="#aaaaaa" 
                         domain={[startPrice, "auto"]} 
-                        style={{fontSize:9, fill:'#747474'}}
+                        style={{fontSize:9, fill:darkTheme? "#adaabe" : "#aaaaaa"}}
                         tickFormatter={formatNumber}
                     />
                     <CartesianGrid 

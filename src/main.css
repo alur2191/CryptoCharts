@@ -2,7 +2,7 @@
     --secondary-bg-color: #181d3a;
     --primary-color: #dfdfdf;
     --primary-color: #5777B9;
-    --border-color: #0d1020;
+    --secondary-color: #0d1020;
     --small-font-size: 0.7rem;
 } */
 
@@ -10,7 +10,7 @@
     --background-color: #e2e2e2;
     --secondary-bg-color: #dbdcdf;
     --primary-color: #747474;
-    --border-color: #c3c4c5;
+    --secondary-color: #c3c4c5;
     --small-font-size: 0.7rem;
 }
 
@@ -18,7 +18,7 @@
     --background-color: #15142B;
     --secondary-bg-color: #21213A;
     --primary-color: #adaabe;
-    --border-color: #4A4876;
+    --secondary-color: #4A4876;
     --small-font-size: 0.7rem;
 }
 
@@ -54,6 +54,17 @@ input[type=text], textarea {
     -ms-transition: all 0.20s ease-in;
     -o-transition: all 0.20s ease-in;
     outline: none;
+}
+
+button {
+    height: 45px;
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-color);
+    font-size: 16px;
+    border: none;
+    border-radius: 0px;
+    padding-left: 10px;
+    border: 1px solid var(--secondary-color);
 }
 
 a:link {
@@ -99,9 +110,9 @@ input[type=text]:focus, textarea:focus {
     align-items: center;
     justify-content: center;
     padding-bottom: 3px;
-    border-left: 1px solid var(--border-color);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    border-left: 1px solid var(--secondary-color);
+    border-top: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
 }
 .search-bar {
     width: 100%;
@@ -112,15 +123,15 @@ input[type=text]:focus, textarea:focus {
     border:none;
     border-radius: 0px;
     padding-left: 10px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--secondary-color);
 }
 
 
 .suggestion{
     cursor: pointer;
-    border-right: 1px solid var(--border-color);
-    border-left: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--secondary-color);
+    border-left: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
     color: var(--primary-color);
     background-color: var(--secondary-bg-color);
     padding: 10px;
@@ -135,10 +146,10 @@ input[type=text]:focus, textarea:focus {
 
 .suggestion:last-child{
     cursor: pointer;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--secondary-color);
 }
 .suggestion:hover{
-    background-color: #1d2346;
+    background-color: var(--secondary-color);
 }
 .container {
     max-width: 1100px;
@@ -178,9 +189,7 @@ input[type=text]:focus, textarea:focus {
 }
 
 @media(max-width:768px) {
-    body{
-        padding-top: 30px;
-    }
+    
     #search {
         margin-bottom: 20px;
     }

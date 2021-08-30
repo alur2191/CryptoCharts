@@ -14,7 +14,7 @@ export default function ThemeButton() {
     };
     return (
         <button className={`btn ${darkTheme ? "btn-dark" : "btn-light"}`} onClick={onClick}>
-            {darkTheme ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            {darkTheme ? <i style={{color:"#eae327"}} className="fas fa-moon"></i>: <i style={{color:"#f6bf3c"}} className="fas fa-sun"></i>}
         </button>
     )
 }
