@@ -1,14 +1,12 @@
 import React,{useContext} from 'react'
 import {useEffect,useState} from 'react'
 import ChartContext from '../../context/chart/chartContext';
-import ThemeContext from '../../context/theme/themeContext';
 import ThemeButton from '../themeButton/ThemeButton'
 const CoinGecko = require('coingecko-api');
 const CoinGeckoClient = new CoinGecko();
 
 export default function SearchBar() {
     const chartContext = useContext(ChartContext)
-    const themeContext = useContext(ThemeContext)
 
     const {requestCoin, coin:{coinData}} = chartContext;
 
@@ -16,7 +14,6 @@ export default function SearchBar() {
     const [text,setText]=useState('')
     const [suggestions,setSuggestions]=useState([])
     
-    const darkTheme = themeContext.state.darkTheme;
     useEffect(() => {
         var loadCoins = async() => {
             let data = await CoinGeckoClient.coins.all({per_page:100});

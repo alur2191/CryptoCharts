@@ -10,12 +10,6 @@ import ThemeContext from './context/theme/themeContext'
 function App() {
   const themeContext = useContext(ThemeContext)
   const {darkTheme} = themeContext
-  const storedDarkTheme = localStorage.getItem("DARK")
-
-  useEffect(()=>{
-    localStorage.setItem("DARK", darkTheme)
-    themeContext.dispatch({ type: darkTheme });
-  },[darkTheme])
 
 
   return (
