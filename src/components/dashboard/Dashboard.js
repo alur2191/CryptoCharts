@@ -59,12 +59,6 @@ export default function Dashboard() {
                         ${numberConverter(marketData.total_volume.usd)}
                     </div>
                     <div>
-                        <strong>Supply:</strong>
-                        <span>
-                            {marketData.total_supply !== null ? attachSymbol(coinData.id)+numberConverter(marketData.total_supply) : `∞`}
-                        </span>
-                    </div>
-                    <div>
                         <strong>Circulating:</strong>
                         <span>
                             {attachSymbol(coinData.id)}{numberConverter(marketData.circulating_supply)}

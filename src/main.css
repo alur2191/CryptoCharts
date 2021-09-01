@@ -32,11 +32,14 @@
 
 /* #0D1021 */
 
-.app{
+body {
     background-color: var(--background-color);
     color:var(--primary-color);
-    padding-top: 50px;
     height: 100vh;
+}
+
+.app{
+    padding-top: 50px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -161,7 +164,7 @@ input[type=text]:focus, textarea:focus {
 
 #dashboard {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     row-gap: 10px;
     margin-bottom:20px;
@@ -178,13 +181,9 @@ input[type=text]:focus, textarea:focus {
 
 @media(min-width: 769px) and (max-width:1200px) {
     #dashboard {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom:30;
-    }
-    #dashboard > * {
-        flex: 0 0 calc(33% - 20px);
-        text-align: center;
+        
+        grid-template-columns: repeat(3, 1fr);
+        
     }
     
 }
@@ -195,15 +194,8 @@ input[type=text]:focus, textarea:focus {
         margin-bottom: 20px;
     }
     #dashboard {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom:30;
-        row-gap: 5px;
-        font-size: 14px;
-    }
-    #dashboard > * {
-        flex: 0 0 calc(50% - 20px);
         
-        text-align: center;
+        grid-template-columns: repeat(2, 1fr);
+        
     }
 }
