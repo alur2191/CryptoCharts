@@ -1,7 +1,10 @@
 import {useContext} from 'react'
 import  ChartContext  from '../../context/chart/chartContext';
+import ThemeContext from '../../context/theme/themeContext'
 
 export default function Dashboard() {
+    const themeContext = useContext(ThemeContext)
+    const {darkTheme} = themeContext
     const chartContext = useContext(ChartContext)
     const {coin:{coinData}}= chartContext
 
@@ -36,7 +39,7 @@ export default function Dashboard() {
     return(
         coinData !== undefined ? 
             <div className="container">
-                <div id="dashboard">
+                <div id="dashboard" style={{color:darkTheme?'#adaabe':'#747474'}}>
                     <div>
                         <strong>Price:</strong>
                         ${formatNumber(marketData.current_price.usd)}
