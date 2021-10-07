@@ -81,13 +81,6 @@ a:visited {
 }
 
 
-input[type=text]:focus, textarea:focus {
-    box-shadow: 0 0 5px rgb(19, 19, 20);
-}
-
-
-
-
 .small-font {
     font-size: var(--small-font-size);
     font-weight: bold;
