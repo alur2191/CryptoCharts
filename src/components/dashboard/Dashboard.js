@@ -69,7 +69,7 @@ export default function Dashboard() {
                     </div>
                     <div>
                         <strong>Explorer:</strong>
-                        <a href={coinData.links.blockchain_site[0]}><i class="fas fa-link" style={{color: '#747474'}}></i></a>
+                        <a href={coinData.links.blockchain_site[0]}><i class="fas fa-link" style={{color:darkTheme?'#adaabe':'#747474'}}></i></a>
                     </div>
                     <div>
                         <strong>Supply:</strong>
